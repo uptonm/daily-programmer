@@ -3,10 +3,17 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
+	"strconv"
 )
 
 func main() {
-	fmt.Println(tax(1234567))
+	income, err := strconv.Atoi(os.Args[1])
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	} else {
+		fmt.Println(tax(income))
+	}
 }
 
 func tax(income int) float64 {
